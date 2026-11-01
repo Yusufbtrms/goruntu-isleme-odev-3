@@ -1,0 +1,31 @@
+Islemci thread sayisi (bilgisayar): 16
+Tekrar sayisi: 10 (medyan icin 3), sureler ortalamadir
+
+1. Kontrast germe calisiyor (1600x1598)...
+2. Histogram esitleme calisiyor (1600x1598)...
+3. CLAHE (8x8, clip 2.0) calisiyor (1600x1598)...
+4. Ortalama filtre 3x3 calisiyor (1600x1598)...
+5. Medyan filtre 5x5 calisiyor (1600x1598)...
+
+TABLO 1 - Calisma suresi (ms):
+  Gorev                           1 thread    2 thread    4 thread    8 threadSonuc ayni mi
+  1. Kontrast germe                   2.47        1.80        1.25        1.50        EVET
+  2. Histogram esitleme               2.89        2.22        1.75        1.66        EVET
+  3. CLAHE (8x8, clip 2.0)            9.67        5.76        4.25        3.49        EVET
+  4. Ortalama filtre 3x3             10.09        6.01        4.03        2.62        EVET
+  5. Medyan filtre 5x5              682.54      420.03      264.90      193.23        EVET
+
+TABLO 2 - Hizlanma (1 thread suresi / N thread suresi):
+  Gorev                           1 thread    2 thread    4 thread    8 thread
+  1. Kontrast germe                  1.00x       1.37x       1.97x       1.65x
+  2. Histogram esitleme              1.00x       1.30x       1.65x       1.74x
+  3. CLAHE (8x8, clip 2.0)           1.00x       1.68x       2.28x       2.77x
+  4. Ortalama filtre 3x3             1.00x       1.68x       2.50x       3.86x
+  5. Medyan filtre 5x5               1.00x       1.62x       2.58x       3.53x
+
+Kaydedilenler (cikti_thread): her gorevin 4 thread ile uretilen sonucu
+  1_kontrast_germe_4thread.png
+  2_histogram_esitleme_4thread.png
+  3_clahe_4thread.png
+  4_ortalama_3x3_4thread.png
+  5_medyan_5x5_4thread.png

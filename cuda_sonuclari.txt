@@ -1,0 +1,39 @@
+GPU          : Tesla T4 (hesaplama yetenegi 7.5)
+CPU thread   : 2 (cok thread'li olcum 2 thread ile)
+Tekrar       : CPU 5 (medyan icin 1), GPU 200
+
+1. Kontrast germe calisiyor...
+2. Histogram esitleme calisiyor...
+3. CLAHE (8x8, clip 2.0) calisiyor...
+4. Ortalama filtre 3x3 calisiyor...
+5. Medyan filtre 5x5 calisiyor...
+
+TABLO 1 - Calisma suresi (ms):
+  Gorev                         CPU 1 thread    2 thr CPU  GPU cekirdek  GPU toplam
+  1. Kontrast germe                    5.587        5.616         0.262       1.505
+  2. Histogram esitleme                4.895        4.787         0.169       1.377
+  3. CLAHE (8x8, clip 2.0)            23.660       21.857         0.205       1.380
+  4. Ortalama filtre 3x3              21.346       19.604         0.093       1.293
+  5. Medyan filtre 5x5               893.086      568.540         5.377       5.648
+
+TABLO 2 - Hizlanma (CPU suresi / GPU suresi):
+  Gorev                       CPU 1 / GPU cekirdekCPU 1 / GPU toplamCPU N / GPU toplam
+  1. Kontrast germe                         21.33x             3.71x             3.73x
+  2. Histogram esitleme                     29.00x             3.56x             3.48x
+  3. CLAHE (8x8, clip 2.0)                 115.65x            17.14x            15.84x
+  4. Ortalama filtre 3x3                   229.18x            16.50x            15.16x
+  5. Medyan filtre 5x5                     166.10x           158.11x           100.66x
+
+TABLO 3 - Dogruluk (GPU sonucu ile CPU tek thread sonucu):
+  1. Kontrast germe           en buyuk fark = 0.00, farkli piksel = 0  (birebir ayni)
+  2. Histogram esitleme       en buyuk fark = 0.00, farkli piksel = 0  (birebir ayni)
+  3. CLAHE (8x8, clip 2.0)    en buyuk fark = 0.00, farkli piksel = 0  (birebir ayni)
+  4. Ortalama filtre 3x3      en buyuk fark = 0.00, farkli piksel = 0  (birebir ayni)
+  5. Medyan filtre 5x5        en buyuk fark = 0.00, farkli piksel = 0  (birebir ayni)
+
+Kaydedilenler (cikti_cuda): her gorevin GPU sonucu
+  1_kontrast_germe_gpu.png
+  2_histogram_esitleme_gpu.png
+  3_clahe_gpu.png
+  4_ortalama_3x3_gpu.png
+  5_medyan_5x5_gpu.png
